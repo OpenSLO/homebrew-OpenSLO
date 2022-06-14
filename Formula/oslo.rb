@@ -5,33 +5,44 @@
 class Oslo < Formula
   desc "Command line tool for working with OpenSLO"
   homepage "https://github.com/OpenSLO/oslo"
-  version "0.3.2"
+  version "0.4.0"
   license "Apache-2.0"
-  bottle :unneeded
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/OpenSLO/oslo/releases/download/v0.3.2/oslo_Darwin_x86_64.tar.gz"
-      sha256 "84df2799da9e5ceb9d1fde0b2da6d811c547de648bf125127a6e5d513bf6b0f2"
-    end
     if Hardware::CPU.arm?
-      url "https://github.com/OpenSLO/oslo/releases/download/v0.3.2/oslo_Darwin_arm64.tar.gz"
-      sha256 "f9f2cc0ac56e23083d2deac8a673ef7fc50dd1c46a8964c69c40cd1c5e228465"
+      url "https://github.com/OpenSLO/oslo/releases/download/v0.4.0/oslo_Darwin_arm64.tar.gz"
+      sha256 "58751ad61917e8081dc9f4d32f37ccd2f266659a17f5be3b3908c1b3f6cd6e46"
+
+      def install
+        bin.install "oslo"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/OpenSLO/oslo/releases/download/v0.4.0/oslo_Darwin_x86_64.tar.gz"
+      sha256 "c06b53c11a6b1a0613c4fcd7e789f8512c75e5cd17ceca0e13ece45630e26a56"
+
+      def install
+        bin.install "oslo"
+      end
     end
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/OpenSLO/oslo/releases/download/v0.3.2/oslo_Linux_x86_64.tar.gz"
-      sha256 "e93ee46d5c4ca22535cce74b96bf8b502352a82a089d880374c89b26474893f7"
-    end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/OpenSLO/oslo/releases/download/v0.3.2/oslo_Linux_arm64.tar.gz"
-      sha256 "28aa3222633e5c4c67d73c8129f4ceef08387a572ce078b463ade15ad0a7b0d6"
-    end
-  end
+      url "https://github.com/OpenSLO/oslo/releases/download/v0.4.0/oslo_Linux_arm64.tar.gz"
+      sha256 "3a57be1f65c5e86026846b7b06031bedcb019333e380eb67fd825966cc21eb24"
 
-  def install
-    bin.install "oslo"
+      def install
+        bin.install "oslo"
+      end
+    end
+    if Hardware::CPU.intel?
+      url "https://github.com/OpenSLO/oslo/releases/download/v0.4.0/oslo_Linux_x86_64.tar.gz"
+      sha256 "d6e8ebfc196396ff2d70d653302c4fa7dd048507fc8317191bf16ddfc4de6258"
+
+      def install
+        bin.install "oslo"
+      end
+    end
   end
 end
