@@ -5,21 +5,21 @@
 class Oslo < Formula
   desc "Command line tool for working with OpenSLO"
   homepage "https://github.com/OpenSLO/oslo"
-  version "0.4.0"
+  version "0.5.0"
   license "Apache-2.0"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/OpenSLO/oslo/releases/download/v0.4.0/oslo_Darwin_arm64.tar.gz"
-      sha256 "58751ad61917e8081dc9f4d32f37ccd2f266659a17f5be3b3908c1b3f6cd6e46"
+    if Hardware::CPU.intel?
+      url "https://github.com/OpenSLO/oslo/releases/download/v0.5.0/oslo_Darwin_x86_64.tar.gz"
+      sha256 "2ecfa5ad5b61cf72919c11208e993a36a4a743481ddcb5a8d899cf81b90edbb9"
 
       def install
         bin.install "oslo"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/OpenSLO/oslo/releases/download/v0.4.0/oslo_Darwin_x86_64.tar.gz"
-      sha256 "c06b53c11a6b1a0613c4fcd7e789f8512c75e5cd17ceca0e13ece45630e26a56"
+    if Hardware::CPU.arm?
+      url "https://github.com/OpenSLO/oslo/releases/download/v0.5.0/oslo_Darwin_arm64.tar.gz"
+      sha256 "d0029413fa4d335ce826552df512187d55911578a0fbd45812bbe706ba6a4b78"
 
       def install
         bin.install "oslo"
@@ -28,17 +28,17 @@ class Oslo < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/OpenSLO/oslo/releases/download/v0.4.0/oslo_Linux_arm64.tar.gz"
-      sha256 "3a57be1f65c5e86026846b7b06031bedcb019333e380eb67fd825966cc21eb24"
+    if Hardware::CPU.intel?
+      url "https://github.com/OpenSLO/oslo/releases/download/v0.5.0/oslo_Linux_x86_64.tar.gz"
+      sha256 "13f287eb88c1c5ea1751779691180c2280cdff221205b99811cecb784965ef4e"
 
       def install
         bin.install "oslo"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/OpenSLO/oslo/releases/download/v0.4.0/oslo_Linux_x86_64.tar.gz"
-      sha256 "d6e8ebfc196396ff2d70d653302c4fa7dd048507fc8317191bf16ddfc4de6258"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/OpenSLO/oslo/releases/download/v0.5.0/oslo_Linux_arm64.tar.gz"
+      sha256 "dc825146eb1bc5c1fbc5196adb40778d8598d89d8bedaf22b4513518cfa5429b"
 
       def install
         bin.install "oslo"
