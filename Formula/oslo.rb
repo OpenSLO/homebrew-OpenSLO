@@ -5,21 +5,21 @@
 class Oslo < Formula
   desc "Command line tool for working with OpenSLO"
   homepage "https://github.com/OpenSLO/oslo"
-  version "0.6.1"
+  version "0.6.2"
   license "Apache-2.0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/OpenSLO/oslo/releases/download/v0.6.1/oslo_Darwin_x86_64.tar.gz"
-      sha256 "d1847148dc01c9b345835a1370dd178ebfd46573977a76e300742909f0429a6c"
+    if Hardware::CPU.arm?
+      url "https://github.com/OpenSLO/oslo/releases/download/v0.6.2/oslo_Darwin_arm64.tar.gz"
+      sha256 "638001bc205fb4901aa7bf0bf1d3c6840d6eb7d106219f06fb0f1042921b4854"
 
       def install
         bin.install "bin/oslo"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/OpenSLO/oslo/releases/download/v0.6.1/oslo_Darwin_arm64.tar.gz"
-      sha256 "bbf126d6ced8e893b1831c2f0aca0d9b91da8479fa950bc5160c7c5bd7049fc3"
+    if Hardware::CPU.intel?
+      url "https://github.com/OpenSLO/oslo/releases/download/v0.6.2/oslo_Darwin_x86_64.tar.gz"
+      sha256 "aba28ba7be05819874f81611b06168d328b90fe16c53490cc4d06de763fe22ac"
 
       def install
         bin.install "bin/oslo"
@@ -29,16 +29,16 @@ class Oslo < Formula
 
   on_linux do
     if Hardware::CPU.intel?
-      url "https://github.com/OpenSLO/oslo/releases/download/v0.6.1/oslo_Linux_x86_64.tar.gz"
-      sha256 "c24154e0c0e4cb739d9dfd94d315078a918d69684ccd9014883f6a5ec475a7d5"
+      url "https://github.com/OpenSLO/oslo/releases/download/v0.6.2/oslo_Linux_x86_64.tar.gz"
+      sha256 "773662a726fee1a430909153575afe1d5f58db3adc9e0e03bc5ca16d4bb735ee"
 
       def install
         bin.install "bin/oslo"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/OpenSLO/oslo/releases/download/v0.6.1/oslo_Linux_arm64.tar.gz"
-      sha256 "72e3771206de594f0a99ee08ff12cf93514c4cd9ac59e7087a6ded524c61395e"
+      url "https://github.com/OpenSLO/oslo/releases/download/v0.6.2/oslo_Linux_arm64.tar.gz"
+      sha256 "db5b0292e10ec4d0a31e56cb929b5b6063ae72ac20d3c779695253cce5771f08"
 
       def install
         bin.install "bin/oslo"
