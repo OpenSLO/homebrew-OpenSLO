@@ -11,7 +11,7 @@ class Oslo < Formula
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/OpenSLO/oslo/releases/download/v0.12.0/oslo_darwin_arm64.tar.gz"
-      sha256 "d38804a5929b9af189032dc92f0c899439f5e0a58710f33d21a0f3d522c89e3c"
+      sha256 "4d8017f764fb85f291a2857704b6bf611a83b77b1d4a74c4edce54bce7b33caa"
 
       def install
         bin.install "bin/oslo"
@@ -19,7 +19,7 @@ class Oslo < Formula
     end
     if Hardware::CPU.intel?
       url "https://github.com/OpenSLO/oslo/releases/download/v0.12.0/oslo_darwin_x86_64.tar.gz"
-      sha256 "ae0508c5a7808c38fda69b484d582a36d2e9c7e2366514dac37670367f770a97"
+      sha256 "c3226d7afc1cf012a4a1f48c36bb485ae707bf601242042a4bb40974383ac547"
 
       def install
         bin.install "bin/oslo"
@@ -28,17 +28,17 @@ class Oslo < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/OpenSLO/oslo/releases/download/v0.12.0/oslo_linux_x86_64.tar.gz"
-      sha256 "952d1111944888cb8d00845762cdb3de9e14ad72337b0baba745268c7aed803b"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/OpenSLO/oslo/releases/download/v0.12.0/oslo_linux_arm64.tar.gz"
+      sha256 "4ce5fa294f4e125ebd8525b8b4a90e91bbefb5ad39f528a169952ee0e9c13953"
 
       def install
         bin.install "bin/oslo"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/OpenSLO/oslo/releases/download/v0.12.0/oslo_linux_arm64.tar.gz"
-      sha256 "1eacb86d08d9cf60cba5b09fcf75e0decdb0a1ad994c9ddbb08c1d5459a0c3bf"
+    if Hardware::CPU.intel?
+      url "https://github.com/OpenSLO/oslo/releases/download/v0.12.0/oslo_linux_x86_64.tar.gz"
+      sha256 "5150d16d11c3f9077f8fa10bbe8a12aa30cef05eb740760e45634add682d52f9"
 
       def install
         bin.install "bin/oslo"
